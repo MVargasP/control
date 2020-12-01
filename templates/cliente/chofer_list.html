@@ -1,0 +1,158 @@
+ {% load static %}
+
+  <head>
+    <title>Consultas</title>
+    <meta charset="utf-8">
+    <!--Anuncios de google-->
+    <script data-ad-client="ca-pub-4817534541991617" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+    <link rel="stylesheet" type="text/css" href="{% static "cliente/styles.css" %}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+
+    <section>
+   <!--
+      <div class="container">
+        <img style="float:left;" class="img-responsive text-center" src="{% static "cliente/img/banner.jpg" %}">
+      </div>
+     -->
+      <div class="container">
+        <H3 class="titulo text-success"><strong>Consulta de Tarjeta de control </strong></H3>
+        <div class="container">
+          <form method="POST" class="row">
+            {% csrf_token %}
+          <!--<input type="text" name="" class="form-control col-md-3" placeholder="tipo documento">-->
+          <div class="col-12 row"> 
+            <h5 class="col-sm-12">Ingrese identificación o placa para buscar</h5>
+          <input type="text" name="buscalo" class="form-control col-md-3 col-8" placeholder="Ingrese Numero de doc. de identidad" value="{{busqueda}}">
+          
+           <button type="submit" class="btn btn-primary">Consultar</button>
+          </div>
+         
+          </form>
+        </div>
+      </div><hr>
+
+    </section>
+
+   
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-5 col-lg-5">
+            {% if dni or placa%}
+            {% for consulta in dni  %}
+
+            <div class="tarjeta">
+              <div class="contenidoTarjeta">
+                <div class="row">
+                  <div class="contenedor-logo text-center">
+                    <img src="{{consulta.distrito.logo.url}}" class="img-logo">                     
+                  </div>
+                  <div class="contenedor-logo text-center">
+                    <img src="{% static "cliente/img/logo_pnp.png" %}" class="img-pnp">                     
+                  </div>
+                  <div class="contenedor-logo text-center">
+                    <img src="{{consulta.empresa.logo.url}}" class="img-logo">                     
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 col-lg-12 col-sm-12 col-12 text-center">
+                    <span class="text-center font-weight-bold">TARJETA DE CONTROL</span>
+                  </div>
+                </div>
+              
+                  <div class="row">
+                    <div class="contenedor contenedor-foto">
+                      <div class="text-center ">
+                        <div class="civ text-center border">
+                        <p class="text-center texto-grueso "><strong class="text-danger texto-grueso">CIV:{{consulta.civ}}</strong></p>
+                        </div>
+                        {% if consulta.foto %}
+                           <img src="{{consulta.foto.url}}" class="img-perfil">
+                        {% endif %}
+                      </div>
+                    </div>  
+
+
+                    <div class=" contenedor contenedor-dato centrardiv">
+                      <img src="{{consulta.distrito.logo.url}}" class="fondo-vertical">
+                      <div class="vertical">
+                        <span><strong>{{consulta.nombre|upper}}</strong></span>
+                        <span><strong>{{consulta.apellido|upper}}</strong></span> 
+                        <p><strong>ID. {{consulta.identificador}}</strong></p>
+                      </div>
+                      
+                    </div> 
+                    <div class="contenedor-placa contenedor">
+                      <div class="placa">
+                        <div class="text-center bg-Peru"><strong class="text-danger"> PERU</strong></div>
+                        <div class="text-center placa-text border border-primary"><strong class="texto-grueso">{{consulta.placa|upper}}</strong></div>
+                      </div>
+
+                    </div>  
+                  </div>  
+                      <div class="  row"> 
+                        <p class="footer-card">Ordenanza Nº 419-CDLO-2015 Art. 4.21-Art.35 literal b)</p>
+                      </div> 
+                  </div>    
+                  
+            </div><!--/fin tarjeta--> 
+
+          </div><!--/fin col-md-5--> 
+
+          <div class="col-md-7 col-sm-12 col-lg-7 col-12" >
+              <form>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Nombres:</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{consulta.nombre|upper}} {{consulta.apellido|upper}}" disabled> 
+                <label for="exampleInputEmail1">Empresa:</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{consulta.empresa|upper}}" disabled> 
+                <label for="exampleInputEmail1">Distrito:</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{consulta.distrito|upper}}" disabled> 
+                <label for="exampleInputEmail1">Placa:</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{consulta.placa|upper}}" disabled> 
+                <label for="exampleInputEmail1">Identificador:</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{consulta.identificador|upper}}" disabled> 
+               
+              </div>
+          
+              
+            </form>
+          </div>
+          {% endfor %}
+
+
+          {% endif %}
+
+
+
+        </div><!--fin row-->
+
+      </div><!--/container-->
+
+    </section>
+ 
+  </body>
+
+<!-- Footer -->
+<footer class="page-footer font-small">
+
+  <!-- Copyright -->
+  <div class="footer-copyright blue" >
+    <div class="text-white text-center">© 2020 Copyright:
+      <a href="https://mvpSolucionesInformaticas.xyz/" target="_blank" class="text-white"> mvpSolucionesInformaticas.xyz</a>
+    </div>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->

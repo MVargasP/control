@@ -1,0 +1,125 @@
+.contenedor{
+	float: left;
+}
+.contenedor-dato{
+	z-index: 1;
+	position: relative;
+
+}
+.contenedor-placa{
+	z-index: 2;
+	position: relative;
+}
+
+.centrardiv{
+	display: table;
+	height: 120px;
+	width: 150px;
+}
+
+.civ{
+	height: 25px;
+	width: 80px;
+	margin-left: auto;
+	margin-right: auto;
+	background: #fbf304;
+}
+
+.img-perfil{
+	height: 105px;
+	width: 80px;
+}
+.img-logo{
+	height: 50px;
+	width: 70px;
+}
+.img-pnp{
+	height: 50px;
+	width: 40px;
+}
+.vertical{
+	display: table-cell;
+  	vertical-align: bottom;
+  	padding-left: 6px;
+  }
+
+.fondo-vertical{
+	position:absolute; z-index:0;
+	width: 130px;
+	height: 120px;
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+	filter: grayscale(100%); 
+	opacity: 0.1;
+	margin-left: auto;
+	margin-right: auto;
+}
+.placa{
+	height: 45px;
+	max-width: 90%;
+
+	
+}
+.texto-grueso{
+	font-weight: 900;
+}
+
+.placa-text{
+	background: #64cde4;
+	width: 60px;
+}
+.bg-Peru{
+	background: #fbf304;
+	width: 60px;
+}
+
+.tarjeta{
+	background-image: url("../cliente/img/fondo_tar.png") ;
+	background-repeat:no-repeat;
+	position: relative;
+	z-index: 3;
+
+}
+.contenedor-logo{
+	float: left;
+	width: 100px;
+}
+.contenidoTarjeta{
+	    padding: 27px;
+    padding-top: 15px;
+}
+.footer-card{
+ 	font-size: 9px;
+ }
+
+@media screen and (max-width: 600px) {
+ .footer-card{
+ 	font-size: 8px;
+ }
+
+ .civ{
+	height: 20px;
+	width: 80px;
+}
+.img-perfil{
+	height: 100px;
+	width: 80px;
+}
+.centrardiv{
+	display: table;
+	height: 90px;
+}
+.tarjeta{
+	background-image: url("../cliente/img/fondo_tar-cel.png") ;
+	background-repeat:no-repeat;
+	position: relative;
+	z-index: 3;
+	margin-left: auto;
+    margin-right: auto;
+    width: 330px;
+    max-width: 100%;
+
+}
+}
