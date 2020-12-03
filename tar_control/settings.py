@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'es0=6om7^tp7w=il7z%a+0ct#ivci&8()5pmfqi-(6i8@2l)f%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['prueba.kalelsac.com']
 
 
 # Application definition
@@ -75,12 +75,24 @@ WSGI_APPLICATION = 'tar_control.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
+}"""
+
+DATABASES = {
+    "default": {
+        "ENGINE" : "django.db.backends.postgresql_psycopg2",
+        "NAME": 'controldb',
+        "USER": 'master',
+        "PASSWORD": 'solucioneskalel',
+        "PORT": '5432',
+        "HOST": 'localhost',
+    }
 }
+
 
 
 # Password validation
@@ -125,5 +137,5 @@ STATIC_URL = "/static/"
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, '/home/master/multimedia/media')
+MEDIA_ROOT = os.path.join(BASE_DIR, '/home/control/media')
 #MEDIA_ROOT = os.path.join(BASE_DIR, 'media'
