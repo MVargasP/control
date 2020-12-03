@@ -6,11 +6,31 @@
 	position: relative;
 
 }
+.text-peru{
+	font-size: 10px;
+}
+.peru{
+	background-image:linear-gradient(90deg,red 33%, white 33%, white 66.66%, red 66.66%);
+	height: 10px;
+    width: 12px;
+    margin: 2px;
+}
+.cuadrado{
+	background-color: #a99d9dfa;
+	height: 10px;
+    width: 12px;
+    margin: 2px;
+}
 .contenedor-placa{
 	z-index: 2;
 	position: relative;
 }
+.titulo{
+	width: 100%;
+	margin-right: auto;
+	margin-left: auto;
 
+}
 .centrardiv{
 	display: table;
 	height: 120px;
@@ -58,7 +78,7 @@
 }
 .placa{
 	height: 45px;
-	max-width: 90%;
+	max-width: 100%;
 
 	
 }
@@ -72,7 +92,8 @@
 }
 .bg-Peru{
 	background: #fbf304;
-	width: 60px;
+	
+	height: 14px;
 }
 
 .tarjeta{

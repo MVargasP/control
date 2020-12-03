@@ -25,7 +25,7 @@
       </div>
      -->
       <div class="container">
-        <H3 class="titulo text-success"><strong>Consulta de Tarjeta de control </strong></H3>
+        <H3 class="text-success"><strong>Consulta de Tarjeta de control </strong></H3>
         <div class="container">
           <form method="POST" class="row">
             {% csrf_token %}
@@ -47,7 +47,7 @@
     <section>
       <div class="container">
         <div class="row">
-          <div class="col-sm-12 col-md-5 col-lg-5">
+          <div class="col-sm-12 col-md-4 col-lg-4">
             {% if dni or placa%}
             {% for consulta in dni  %}
 
@@ -66,7 +66,7 @@
                 </div>
                 <div class="row">
                   <div class="col-md-12 col-lg-12 col-sm-12 col-12 text-center">
-                    <span class="text-center font-weight-bold">TARJETA DE CONTROL</span>
+                    <div class="text-center titulo"><span class="font-weight-bold">TARJETA DE CONTROL</span></div>
                   </div>
                 </div>
               
@@ -94,7 +94,11 @@
                     </div> 
                     <div class="contenedor-placa contenedor">
                       <div class="placa">
-                        <div class="text-center bg-Peru"><strong class="text-danger"> PERU</strong></div>
+                        <div class="bg-Peru border">
+                        <div class="peru contenedor"></div>
+                        <div class="contenedor"><strong class="text-peru"> PERU</strong></div>
+                        <div class="cuadrado contenedor"></div></div>
+                        
                         <div class="text-center placa-text border border-primary"><strong class="texto-grueso">{{consulta.placa|upper}}</strong></div>
                       </div>
 
@@ -109,7 +113,7 @@
 
           </div><!--/fin col-md-5--> 
 
-          <div class="col-md-7 col-sm-12 col-lg-7 col-12" >
+          <div class="col-md-8 col-sm-12 col-lg-8 col-12" >
               <form>
               <div class="form-group">
                 <label for="exampleInputEmail1">Nombres:</label>

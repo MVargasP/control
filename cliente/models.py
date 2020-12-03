@@ -29,6 +29,6 @@ class Chofer(models.Model):
 
 
 	def __str__(self):
-		return self.dni
+		return self.apellido
 
 
