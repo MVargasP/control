@@ -24,7 +24,7 @@ SECRET_KEY = 'es0=6om7^tp7w=il7z%a+0ct#ivci&8()5pmfqi-(6i8@2l)f%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-ALLOWED_HOSTS = ['prueba.kalelsac.com']
+ALLOWED_HOSTS = ['tarjetacontrol-losolivos.com','www.tarjetacontrol-losolivos.com']
 #ALLOWED_HOSTS = ['*']
 
 
