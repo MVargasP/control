@@ -3,27 +3,44 @@ from django.views.generic import ListView, DetailView, View,TemplateView
 from .models import Chofer,Empresa,Distrito
 from datetime import datetime, timedelta,date
 
+
 class ConsultaView(ListView):
 	model=Chofer
 	
 	def post(self,request,*args,**kwargs):
-		buscar= request.POST['buscalo']
-		placa= Chofer.objects.filter(placa__exact=buscar)
-		dni=Chofer.objects.filter(dni__exact=buscar)
-		if dni:
-			placa=dni
-		if placa:
-			dni=placa
+		buscar= request.POST['busca_placa']
+		civ=request.POST['buscalo_civ']
+		apellido= request.POST['ape']
+		nombre= request.POST['nombre']
+
+		
+
+		if buscar:
+			placa= Chofer.objects.filter(placa__exact=buscar)
+
+
+		elif civ:
+			placa= Chofer.objects.filter(civ__exact=civ)
+		
+
+		elif apellido and nombre:
+			placa= Chofer.objects.filter(apellido__exact=apellido,nombre__exact=nombre)
+		else:
+			placa=0
 			
+			
+
+
 		now=date.today()
-		dni=placa
-		print(dni,placa)
+	
+	
 		contexto = {
 			'fecha_actual':now,
-			'dni':dni,
+			'dni':placa,
 	
 			'busqueda':buscar,
-			'placa':placa,
+
 		}
 		
 		return render(request,'cliente/chofer_list.html',contexto)
+

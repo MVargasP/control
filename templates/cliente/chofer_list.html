@@ -1,56 +1,148 @@
+ {% extends "cliente/index.html" %} 
  {% load static %}
 
-  <head>
-    <title>Consultas</title>
-    <meta charset="utf-8">
-    <!--Anuncios de google-->
-    <script data-ad-client="ca-pub-4817534541991617" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    {% load bootstrap4 %}
-    {% bootstrap_css %}
-    {% bootstrap_javascript jquery='full' %}
-    <link rel="stylesheet" type="text/css" href="{% static "cliente/styles.css" %}">
+  {% block contenido %}
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <H2 class="text-success text-center"><strong>Consulta de Tarjeta de Control Los Olivos </strong></H2>
+<div id="imgtarjeta" class="container text-center" style="background:#d4fbe7;">
+  <img src="{% static "cliente/img/tarjeta.png" %}" class="img-fluid tarje-principal" >
+ 
+</div>
+
+<div id="imgname" class="container text-center ocultar" style="background:#d4fbe7;">
+  <img  src="{% static "cliente/img/nombres.jpg" %}" class="img-fluid tarje">
     
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  </head>
+</div>
 
-  <body>
+<div id="imgciv" class="container text-center ocultar" style="background:#d4fbe7;">
+   <img src="{% static "cliente/img/civ.jpg" %}" class="img-fluid tarje">
+  
+</div>
+
+<div id="imgplaca" class="container text-center ocultar" style="background:#d4fbe7;">
+  <img src="{% static "cliente/img/placa.jpg" %}" class="img-fluid tarje">
+</div>
+
+<div class="container text-center fondo-index">
+
+  <div class="row">
+    <div class="col-md-4 col-lg-4 col-12 text-center">
+      <div class="">
+        <h6 class="bold">Consultar por Nº Placa</h6>
+        <div class="">
+          <p class=" descripcion card-text text-justify">Se le presentará un formulario en el que deba rellenar el campo vacio con el numero de Placa de su vehiculo. <span id="about-btn" class="ver"> ver ejemplo</span> </p>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-lg-4 col-12 text-center">
+      <div class="">
+        <h6 class="bold">Consultar por Nº CIV</h6>
+        <div class="">
+          <p class="card-text descripcion text-justify">Se le presentará un formulario en el que deba rellenar el campo vacio con el numero de CIV de su tarjeta de control.<span id="ver-civ" class="ver"> ver ejemplo</span> </p>
+           
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-lg-4 col-12 text-center">
+      <div class="">
+        <h6 class="bold">Consultar por Nombres</h6>
+        <div class="" id="ocultar">
+          <p class="card-text descripcion text-justify">Se le presentará un formulario en el que deba rellenar el campo vacio con los nombres del conductor. <span id="ver-name" class="ver"> ver ejemplo</span> </p>
+          
+         
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
 
     <section>
-   <!--
+
       <div class="container">
-        <img style="float:left;" class="img-responsive text-center" src="{% static "cliente/img/banner.jpg" %}">
-      </div>
-     -->
-      <div class="container">
-        <H3 class="text-success"><strong>Consulta de Tarjeta de control </strong></H3>
-        <div class="container">
-          <form method="POST" class="row">
-            {% csrf_token %}
-          <!--<input type="text" name="" class="form-control col-md-3" placeholder="tipo documento">-->
-          <div class="col-12 row"> 
-            <h5 class="col-sm-12">Ingrese identificación o placa para buscar</h5>
-          <input type="text" name="buscalo" class="form-control col-md-3 col-8" placeholder="Ingrese Numero de doc. de identidad" value="{{busqueda}}">
+      
+        <br>
+        <div class="row">
+
+          <div class="col-4 col-sm-12 col-md-4 col-lg-4">
+            <h5>TIPO DE BUSQUEDA:</h5>
+
+           <ul> 
+            
+              <li>
+                  <input type="radio" id="radio1" name="select" checked="checked" aria-label="Radio button for following text input" ><span class="tipo">Por Placa</span>
+              </li>
+              <li>
+                <input type="radio" id="radio2" name="select" aria-label="Radio button for following text input">
+                <span class="tipo">Por Nº CIV</span>
+              </li>
+              <li>
+                <input type="radio" id="radio3" name="select" aria-label="Radio button for following text input">Por  <span class="tipo">Apellidos y Nombres</span>
+              </li>
+              
+              
+              
           
-           <button type="submit" class="btn btn-primary">Consultar</button>
+          </ul>
+
           </div>
-         
+
+          <div class="col-6 col-sm-12 col-md-6 col-lg-6">
+          <form method="POST" id="form1">
+            {% csrf_token %}
+            <!--<input type="text" name="" class="form-control col-md-3" placeholder="tipo documento">-->
+            <div class=""> 
+                <div id="placa" class="">
+                  <h5 class="col-sm-12">Ingrese el numero de Placa del vehiculo</h5>
+                  <input type="text" name="busca_placa" class="form-control" placeholder="Ingrese Numero de doc. de identidad" >
+                </div>
+
+                <div id="civ" style="display:none;">
+                  <h5 class="">Ingrese el de CIV de la tarjeta de control</h5>
+                  <input type="number" name="buscalo_civ" class="form-control" placeholder="Ingrese Numero de civ">
+                </div>
+
+                <div id="name" class="row" style="display:none;">
+                 <div class="">
+                 Apellidos: 
+                    <input type="text" name="ape" class="form-control" placeholder="ejemplo: PEREZ PEREZ">
+                  </div>
+                  <div class="">
+                    Nombres:
+                      <input type="text"  name="nombre" class="form-control" placeholder="ejemplo: PEDRO PABLO">
+                    </div>                  
+                </div>
+
+                <div style="margin-top:10px;">
+                   <button id="btnbuscar" type="submit" class="btn btn-primary">Buscar</button>
+                </div>
+
+            
+              
+            </div>
           </form>
+   </div>
+         
+          
         </div>
       </div><hr>
 
     </section>
 
-   
-    <section>
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12 col-md-4 col-lg-4">
-            {% if dni or placa%}
+        
+            {% if dni|length > 0 %}
             {% for consulta in dni  %}
 
+    <section>
+           
+      <div class="container">
+             Fecha de consulta: {{fecha_actual}}
+      <div class="row">
+          <div class="col-sm-12 col-md-4 col-lg-4">
             <div class="tarjeta">
               <div class="contenidoTarjeta">
                 <div class="row">
@@ -132,31 +224,20 @@
               
             </form>
           </div>
-          {% endfor %}
-
-
-          {% endif %}
-
 
 
         </div><!--fin row-->
 
       </div><!--/container-->
+      <hr>
 
     </section>
- 
-  </body>
+{% empty %}
+    <li>Sorry, no athletes in this list.</li>
+  {% endfor %}
 
-<!-- Footer -->
-<footer class="page-footer font-small">
 
-  <!-- Copyright -->
-  <div class="footer-copyright blue" >
-    <div class="text-white text-center">© 2020 Copyright:
-      <a href="https://mvpSolucionesInformaticas.xyz/" target="_blank" class="text-white"> mvpSolucionesInformaticas.xyz</a>
-    </div>
-  </div>
-  <!-- Copyright -->
+  {% endif %}
 
-</footer>
-<!-- Footer -->
+   {% endblock contenido %}
+  

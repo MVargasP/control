@@ -1,0 +1,113 @@
+ {% load static %}
+
+{% block head %}
+<head>
+  <title>Consultas</title>
+  <meta charset="utf-8">
+  <!--Anuncios de google-->
+  <script data-ad-client="ca-pub-4817534541991617" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  {% load bootstrap4 %}
+  {% bootstrap_css %}
+  
+  <link rel="stylesheet" type="text/css" href="{% static "cliente/styles.css" %}">
+
+
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" > </script>
+{% bootstrap_javascript jquery='full' %}
+
+
+</head>
+  
+{% endblock head %}
+<body> 
+{% block contenido %}
+ 
+
+
+<div id="imgtarjeta" class="container text-center" style="background:#d4fbe7;">
+  <img src="{% static "cliente/img/tarjeta.png" %}" class="img-fluid tarje-principal" >
+ 
+</div>
+
+<div id="imgname" class="container text-center ocultar" style="background:#d4fbe7;">
+  <img  src="{% static "cliente/img/nombres.jpg" %}" class="img-fluid tarje">
+    
+</div>
+
+<div id="imgciv" class="container text-center ocultar" style="background:#d4fbe7;">
+   <img src="{% static "cliente/img/civ.jpg" %}" class="img-fluid tarje">
+  
+</div>
+
+<div id="imgplaca" class="container text-center ocultar" style="background:#d4fbe7;">
+  <img src="{% static "cliente/img/placa.jpg" %}" class="img-fluid tarje">
+</div>
+
+<div class="container text-center fondo-index">
+  <div class="row">
+    <div class="col-md-4 col-lg-4 col-12 text-center">
+      <div class="">
+        <h4 class="bold">Consultar por Nº Placa</h4>
+        <div class="card-body">
+          <p class="card-text text-justify">Se le presentará un formulario en el que deba rellenar el campo vacio con el numero de Placa de su vehiculo. <span id="about-btn" class="ver"> ver ejemplo</span> </p>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-lg-4 col-12 text-center">
+      <div class="">
+        <h4 class="bold">Consultar por Nº CIV</h4>
+        <div class="card-body">
+          <p class="card-text text-justify">Se le presentará un formulario en el que deba rellenar el campo vacio con el numero de CIV de su tarjeta de control.<span id="ver-civ" class="ver"> ver ejemplo</span> </p>
+           
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-lg-4 col-12 text-center">
+      <div class="">
+        <h4 class="bold">Consultar por Nombres</h4>
+        <div class="card-body" id="ocultar">
+          <p class="card-text text-justify">Se le presentará un formulario en el que deba rellenar el campo vacio con los nombres del conductor. <span id="ver-name" class="ver"> ver ejemplo</span> </p>
+          
+         
+        </div>
+      </div>
+    </div>
+
+  </div>
+ <a href="{% url 'placa' %}" class="myButton">Consultar</a>
+</div>
+
+
+
+{% endblock contenido %}
+
+</body>
+
+{% block js %}
+
+
+ 
+<script src="{% static "cliente/js/jquery.js" %}" />
+<script src="{% static "cliente/js/jquery-3.5.1.min.js" %}"></script>
+
+
+{% endblock js %}
+
+{% block footer %}
+  <!-- Footer -->
+<footer class="page-footer font-small">
+  <!-- Copyright -->
+  <div class="footer-copyright blue" >
+    <div class="text-white text-center">© 2020 Copyright:
+      <a href="https://mvpSolucionesInformaticas.xyz/" target="_blank" class="text-white"> mvpSolucionesInformaticas.xyz</a>
+    </div>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+{% endblock footer %}
