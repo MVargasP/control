@@ -4,23 +4,23 @@
   {% block contenido %}
 
     <H2 class="text-success text-center"><strong>Consulta de Tarjeta de Control Los Olivos </strong></H2>
-<div id="imgtarjeta" class="container text-center" style="background:#d4fbe7;">
+<div id="imgtarjeta" class="container text-center">
   <img src="{% static "cliente/img/tarjeta.png" %}" class="img-fluid tarje-principal" >
  
 </div>
 
 <div id="imgname" class="container text-center ocultar" style="background:#d4fbe7;">
-  <img  src="{% static "cliente/img/nombres.jpg" %}" class="img-fluid tarje">
+  <img  src="{% static "cliente/img/nombres.png" %}" class="img-fluid tarje">
     
 </div>
 
 <div id="imgciv" class="container text-center ocultar" style="background:#d4fbe7;">
-   <img src="{% static "cliente/img/civ.jpg" %}" class="img-fluid tarje">
+   <img src="{% static "cliente/img/civ.png" %}" class="img-fluid tarje">
   
 </div>
 
 <div id="imgplaca" class="container text-center ocultar" style="background:#d4fbe7;">
-  <img src="{% static "cliente/img/placa.jpg" %}" class="img-fluid tarje">
+  <img src="{% static "cliente/img/placa.png" %}" class="img-fluid tarje">
 </div>
 
 <div class="container text-center fondo-index">
@@ -143,66 +143,30 @@
              Fecha de consulta: {{fecha_actual}}
       <div class="row">
           <div class="col-sm-12 col-md-4 col-lg-4">
-            <div class="tarjeta">
-              <div class="contenidoTarjeta">
-                <div class="row">
-                  <div class="contenedor-logo text-center">
-                    <img src="{{consulta.distrito.logo.url}}" class="img-logo">                     
-                  </div>
-                  <div class="contenedor-logo text-center">
-                    <img src="{% static "cliente/img/logo_pnp.png" %}" class="img-pnp">                     
-                  </div>
-                  <div class="contenedor-logo text-center">
-                    <img src="{{consulta.empresa.logo.url}}" class="img-logo">                     
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-12 col-lg-12 col-sm-12 col-12 text-center">
-                    <div class="text-center titulo"><span class="font-weight-bold">TARJETA DE CONTROL</span></div>
-                  </div>
-                </div>
-              
-                  <div class="row">
-                    <div class="contenedor contenedor-foto">
-                      <div class="text-center ">
-                        <div class="civ text-center border">
-                        <p class="text-center texto-grueso "><strong class="text-danger texto-grueso">CIV:{{consulta.civ}}</strong></p>
-                        </div>
-                        {% if consulta.foto %}
-                           <img src="{{consulta.foto.url}}" class="img-perfil">
-                        {% endif %}
-                      </div>
-                    </div>  
-
-
-                    <div class=" contenedor contenedor-dato centrardiv">
-                      <img src="{{consulta.distrito.logo.url}}" class="fondo-vertical">
-                      <div class="vertical">
-                        <span><strong>{{consulta.nombre|upper}}</strong></span>
+            <div class="tarjeta" style="background: url({{consulta.empresa.logo.url}});background-repeat:no-repeat; width: 330px; max-width: 100%;">
+              <div class="civ-foto">
+              {% if consulta.foto %}
+                    <img src="{{consulta.foto.url}}" class="img-perfil">
+                           {% else %}no 
+              {% endif %}
+              <p class="texto-grueso "><strong class="text-danger">CIV:{{consulta.civ}}</strong></p>
+             </div>
+             <div class="vertical">
+                        <span><strong>{{consulta.nombre|upper}}</strong></span><br>
                         <span><strong>{{consulta.apellido|upper}}</strong></span> 
-                        <p><strong>ID. {{consulta.identificador}}</strong></p>
-                      </div>
+                        <p><strong>DNI: {{consulta.identificador}}</strong></p>
+            </div>
                       
-                    </div> 
-                    <div class="contenedor-placa contenedor">
-                      <div class="placa">
-                        <div class="bg-Peru border">
-                        <div class="peru contenedor"></div>
-                        <div class="contenedor"><strong class="text-peru"> PERU</strong></div>
-                        <div class="cuadrado contenedor"></div></div>
+      
                         
-                        <div class="text-center placa-text border border-primary"><strong class="texto-grueso">{{consulta.placa|upper}}</strong></div>
-                      </div>
+                        <div class="placa"><strong class="texto-grueso">{{consulta.placa|upper}}</strong></div>
+          </div>
+     
+         
+                     
 
-                    </div>  
-                  </div>  
-                      <div class="  row"> 
-                        <p class="footer-card">Ordenanza Nº 419-CDLO-2015 Art. 4.21-Art.35 literal b)</p>
-                      </div> 
-                  </div>    
+
                   
-            </div><!--/fin tarjeta--> 
-
           </div><!--/fin col-md-5--> 
 
           <div class="col-md-8 col-sm-12 col-lg-8 col-12" >

@@ -56,14 +56,7 @@ margin-left: auto;
   position:relative;
   top:1px;
 }
-.contenedor{
-	float: left;
-}
-.contenedor-dato{
-	z-index: 1;
-	position: relative;
 
-}
 .text-peru{
 	font-size: 10px;
 }
@@ -80,8 +73,8 @@ margin-left: auto;
     margin: 2px;
 }
 .contenedor-placa{
-	z-index: 2;
-	position: relative;
+	float: right;
+	padding-top: 100px;
 }
 .titulo{
 	width: 100%;
@@ -104,8 +97,8 @@ margin-left: auto;
 }
 
 .img-perfil{
-	height: 105px;
-	width: 80px;
+	    height: 79px;
+    width: 63px;
 }
 .img-logo{
 	height: 50px;
@@ -116,34 +109,33 @@ margin-left: auto;
 	width: 40px;
 }
 .vertical{
+	float: left;
+	padding-top: 100px;
+	font-size: 12px;
 	display: table-cell;
   	vertical-align: bottom;
   	padding-left: 6px;
   }
 
-.fondo-vertical{
-	position:absolute; z-index:0;
-	width: 130px;
-	height: 120px;
-	-webkit-filter: grayscale(100%);
-	-moz-filter: grayscale(100%);
-	-ms-filter: grayscale(100%);
-	-o-filter: grayscale(100%);
-	filter: grayscale(100%); 
-	opacity: 0.1;
-	margin-left: auto;
-	margin-right: auto;
-}
-.placa{
-	height: 45px;
-	max-width: 100%;
 
-	
+.placa{
+    /* float: none; */
+    padding-top: 170px;
+    height: 45px;
+    max-width: 100%;
+    padding-left: 224px;
+    height: 235px;
 }
 .texto-grueso{
+	    padding-top: 5px;
 	font-weight: 900;
 }
 
+.civ-foto{
+	float: left;
+	padding-left: 34px;
+	padding-top: 90px;
+}
 .placa-text{
 	background: #64cde4;
 	width: 60px;
@@ -155,20 +147,14 @@ margin-left: auto;
 }
 
 .tarjeta{
-	background-image: url("../cliente/img/fondo_tar.png") ;
+	width: 330px;
+    max-width: 100%;
 	background-repeat:no-repeat;
 	position: relative;
 	z-index: 3;
 
 }
-.contenedor-logo{
-	float: left;
-	width: 100px;
-}
-.contenidoTarjeta{
-	    padding: 27px;
-    padding-top: 15px;
-}
+
 .footer-card{
  	font-size: 9px;
  }
@@ -183,8 +169,8 @@ margin-left: auto;
 	width: 80px;
 }
 .img-perfil{
-	height: 100px;
-	width: 80px;
+	    height: 79px;
+    width: 63px;
 }
 .centrardiv{
 	display: table;
