@@ -24,9 +24,9 @@ class ChoferResource(resources.ModelResource):
          
     class Meta:
         model = Chofer
-        fields=('distrito','nombre','apellido','placa','empresa',
+        fields=('distrito','nombre','apellido','placa','empresa','foto',
         'dni','civ','identificador') # campos que se import-export
-        export_order = ['distrito','nombre','apellido','placa','empresa',
+        export_order = ['distrito','nombre','apellido','placa','empresa','foto',
         'dni','civ','identificador']
         import_id_fields = ['placa'] # import busca un id por default especificar que campo utilizare como id si cambio el pk
 
