@@ -37,6 +37,23 @@ class ChoferAdmin(ImportExportModelAdmin,admin.ModelAdmin):
 	resource_class = ChoferResource 
 
 
+
+
+
+class EmpresaResource(resources.ModelResource):
+
+    
+    class Meta:
+        model = Empresa
+        fields= ('id','empresa','logo') # campos que se import-export
+
+class EmpresaAdmin(ImportExportModelAdmin,admin.ModelAdmin):
+    #list_display = ('user','quizzes') # campos que se mostraran
+    search_fields = ['empresa'] # busqueda de campos
+    resource_class = EmpresaResource
+
+
+
 admin.site.register(Distrito)
-admin.site.register(Empresa)
+admin.site.register(Empresa,EmpresaAdmin)
 admin.site.register(Chofer,ChoferAdmin)

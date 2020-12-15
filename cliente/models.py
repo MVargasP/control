@@ -1,7 +1,7 @@
 from django.db import models
 
 class Empresa(models.Model):
-	empresa=models.CharField('Empresa',max_length=50)
+	empresa=models.CharField('Empresa',max_length=250)
 	logo=models.ImageField('Logo',null=True,blank=True,upload_to='logo/')
 
 	def __str__(self):
