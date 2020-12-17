@@ -3,20 +3,17 @@
 
   {% block contenido %}
 
-    <H2 class="text-success text-center"><strong>Consulta de Tarjeta de Control Los Olivos </strong></H2>
+<H2 class="text-success text-center"><strong>Consulta de Tarjeta de Control Los Olivos </strong></H2>
 <div id="imgtarjeta" class="container text-center">
-  <img src="{% static "cliente/img/tarjeta.png" %}" class="img-fluid tarje-principal" >
- 
+  <img src="{% static "cliente/img/tarjeta.png" %}" class="img-fluid tarje-principal"> 
 </div>
 
 <div id="imgname" class="container text-center ocultar" style="background:#d4fbe7;">
-  <img  src="{% static "cliente/img/nombres.png" %}" class="img-fluid tarje">
-    
+  <img  src="{% static "cliente/img/nombres.png" %}" class="img-fluid tarje">    
 </div>
 
 <div id="imgciv" class="container text-center ocultar" style="background:#d4fbe7;">
-   <img src="{% static "cliente/img/civ.png" %}" class="img-fluid tarje">
-  
+   <img src="{% static "cliente/img/civ.png" %}" class="img-fluid tarje">  
 </div>
 
 <div id="imgplaca" class="container text-center ocultar" style="background:#d4fbe7;">
@@ -24,7 +21,6 @@
 </div>
 
 <div class="container text-center fondo-index">
-
   <div class="row">
     <div class="col-md-4 col-lg-4 col-12 text-center">
       <div class="">
@@ -98,12 +94,12 @@
             <div class=""> 
                 <div id="placa" class="">
                   <h5 class="col-sm-12">Ingrese el numero de Placa del vehiculo</h5>
-                  <input type="text" name="busca_placa" class="form-control" placeholder="Ingrese Numero de doc. de identidad" >
+                  <input type="text" name="busca_placa" helptext class="form-control" placeholder="Ingrese la PLACA del vehiculo en MAYUSCULAS" >
                 </div>
 
                 <div id="civ" style="display:none;">
                   <h5 class="">Ingrese el Codigo Municipal de la tarjeta de control</h5>
-                  <input type="number" name="buscalo_civ" class="form-control" placeholder="Ingrese Numero de civ">
+                  <input type="number" name="buscalo_civ" class="form-control" placeholder="Ingrese Numero de Codigo Municipal">
                 </div>
 
                 <div id="name" class="row" style="display:none;">
@@ -140,7 +136,7 @@
     <section>
            
       <div class="container">
-             Fecha de consulta: {{fecha_actual}}
+
       <div class="row">
           <div class="col-sm-12 col-md-4 col-lg-4">
             <div class="tarjeta" style="background: url({{consulta.empresa.logo.url}});background-repeat:no-repeat; width: 330px; max-width: 100%;">
@@ -156,17 +152,16 @@
                         <span><strong>{{consulta.apellido|upper}}</strong></span> 
                         <p><strong>DNI: {{consulta.identificador}}</strong></p>
             </div>
-                      
-      
-                        
-                        <div class="placa"><strong class="texto-grueso">{{consulta.placa|upper}}</strong></div>
+             <div class="placa"><strong class="texto-grueso">{{consulta.placa|upper}}</strong></div>
           </div>
      
          
-                     
-
-
-                  
+          {% if fecha_actual > consulta.fecha_caducidad_licencia %}
+                        <h2 class="text-danger text-center estado"> Vencido</h2>
+          {% else %}  
+                        <h2 class="text-success estado text-center"> Activo</h2>    
+                      
+          {% endif %}
           </div><!--/fin col-md-5--> 
 
           <div class="col-md-8 col-sm-12 col-lg-8 col-12" >
@@ -180,8 +175,12 @@
                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{consulta.distrito|upper}}" disabled> 
                 <label for="exampleInputEmail1">Placa:</label>
                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{consulta.placa|upper}}" disabled> 
-                <label for="exampleInputEmail1">Identificador:</label>
+                <label for="exampleInputEmail1">Codigo Municipal:</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{consulta.civ}}" disabled> 
+                <label for="exampleInputEmail1">DNI:</label>
                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{consulta.identificador|upper}}" disabled> 
+                <label for="exampleInputEmail1">Vigencia :</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{consulta.fecha_caducidad_licencia}}" disabled> 
                
               </div>
           
