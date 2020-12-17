@@ -25,14 +25,14 @@ class ChoferResource(resources.ModelResource):
     class Meta:
         model = Chofer
         fields=('distrito','nombre','apellido','placa','empresa','foto',
-        'dni','civ','identificador') # campos que se import-export
+        'dni','civ','identificador','fecha_caducidad_licencia') # campos que se import-export
         export_order = ['distrito','nombre','apellido','placa','empresa','foto',
-        'dni','civ','identificador']
+        'dni','civ','identificador','fecha_caducidad_licencia']
         import_id_fields = ['placa'] # import busca un id por default especificar que campo utilizare como id si cambio el pk
 
 class ChoferAdmin(ImportExportModelAdmin,admin.ModelAdmin):
 	list_display = ('distrito','nombre','apellido','placa','empresa',
-        'dni','civ','identificador') # campos que se mostraran
+        'dni','civ','identificador','fecha_caducidad_licencia') # campos que se mostraran
 	search_fields = ['nombre','apellido','placa','dni'] # busqueda de campos
 	resource_class = ChoferResource 
 
