@@ -36,7 +36,7 @@
       <div class="">
         <h6 class="bold">Consultar por Codigo Municipal</h6>
         <div class="">
-          <p class="card-text descripcion text-justify">Se le presentará un formulario en el que deba rellenar el campo vacio con el numero de CIV de su tarjeta de control.<span id="ver-civ" class="ver"> ver ejemplo</span> </p>
+          <p class="card-text descripcion text-justify">Se le presentará un formulario en el que deba rellenar el campo vacio con el numero de Codigo Municipal de su tarjeta de control.<span id="ver-civ" class="ver"> ver ejemplo</span> </p>
            
         </div>
       </div>
@@ -145,7 +145,7 @@
                     <img src="{{consulta.foto.url}}" class="img-perfil">
                            {% else %}no 
               {% endif %}
-              <p class="texto-grueso "><strong class="text-danger">CIV:{{consulta.civ}}</strong></p>
+              <p class="texto-grueso "><strong class="text-danger">{{consulta.civ}}</strong></p>
              </div>
              <div class="vertical">
                         <span><strong>{{consulta.nombre|upper}}</strong></span><br>
@@ -179,7 +179,7 @@
                 <label for="exampleInputEmail1">DNI:</label>
                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{consulta.identificador|upper}}" disabled> 
                 <label for="exampleInputEmail1">Vigencia :</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{consulta.fecha_caducidad_licencia}}" disabled> 
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{consulta.fecha_inicio_licencia}}al{{consulta.fecha_caducidad_licencia}}" disabled> 
                
               </div>
           

@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'es0=6om7^tp7w=il7z%a+0ct#ivci&8()5pmfqi-(6i8@2l)f%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-ALLOWED_HOSTS = ['tarjetacontrol-losolivos.com','www.tarjetacontrol-losolivos.com']
-#ALLOWED_HOSTS = ['*']
+DEBUG = True
+#ALLOWED_HOSTS = ['tarjetacontrol-losolivos.com','www.tarjetacontrol-losolivos.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'tar_control.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-"""
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -95,7 +95,7 @@ DATABASES = {
         "HOST": 'localhost',
     }
 }
-
+"""
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
