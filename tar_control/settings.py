@@ -87,7 +87,7 @@ DATABASES = {
 DATABASES = {
     "default": {
         "ENGINE" : "django.db.backends.postgresql_psycopg2",
-        "NAME": 'tarjetacontroldb',
+        "NAME": 'controldb',
         "USER": 'master',
         "PASSWORD": 'solucioneskalel',
         "PORT": '5432',

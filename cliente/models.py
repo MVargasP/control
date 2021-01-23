@@ -19,7 +19,7 @@ class Distrito(models.Model):
 class Chofer(models.Model):
 	nombre = models.CharField('Nombre', max_length=50)
 	apellido = models.CharField('apellido', max_length=60)
-	placa= models.CharField('Placa',max_length=10)
+	placa= models.CharField('Placa',max_length=10,unique=False)
 	dni= models.CharField('Dni', max_length=10,primary_key=True)
 	civ = models.IntegerField('CIV')
 	identificador=models.IntegerField('ID')

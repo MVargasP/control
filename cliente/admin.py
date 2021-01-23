@@ -28,7 +28,7 @@ class ChoferResource(resources.ModelResource):
         'dni','civ','identificador','fecha_caducidad_licencia','fecha_inicio_licencia') # campos que se import-export
         export_order = ['distrito','nombre','apellido','placa','empresa','foto',
         'dni','civ','identificador','fecha_caducidad_licencia','fecha_inicio_licencia']
-        import_id_fields = ['placa'] # import busca un id por default especificar que campo utilizare como id si cambio el pk
+        import_id_fields = ['dni'] # import busca un id por default especificar que campo utilizare como id si cambio el pk
 
 class ChoferAdmin(ImportExportModelAdmin,admin.ModelAdmin):
 	list_display = ('distrito','nombre','apellido','placa','empresa',
