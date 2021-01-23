@@ -13,8 +13,6 @@ class ConsultaView(ListView):
 		apellido= request.POST['ape']
 		nombre= request.POST['nombre']
 
-		
-
 		if buscar:
 			placa= Chofer.objects.filter(placa__exact=buscar)
 
@@ -27,7 +25,6 @@ class ConsultaView(ListView):
 			placa= Chofer.objects.filter(apellido__exact=apellido,nombre__exact=nombre)
 		else:
 			placa=0
-			
 			
 
 
