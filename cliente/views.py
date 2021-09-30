@@ -14,15 +14,15 @@ class ConsultaView(ListView):
 		nombre= request.POST['nombre']
 
 		if buscar:
-			placa= Chofer.objects.filter(placa__exact=buscar)
+			placa= Chofer.objects.filter(placa=buscar)
 
 
 		elif civ:
-			placa= Chofer.objects.filter(civ__exact=civ)
+			placa= Chofer.objects.filter(civ=civ)
 		
 
 		elif apellido and nombre:
-			placa= Chofer.objects.filter(apellido__exact=apellido,nombre__exact=nombre)
+			placa= Chofer.objects.filter(apellido=apellido.upper(),nombre=nombre.upper())
 		else:
 			placa=0
 			
@@ -33,8 +33,7 @@ class ConsultaView(ListView):
 	
 		contexto = {
 			'fecha_actual':now,
-			'dni':placa,
-	
+			'dni':placa,	
 			'busqueda':buscar,
 
 		}

@@ -130,8 +130,8 @@
     </section>
 
         
-            {% if dni|length > 0 %}
-            {% for consulta in dni  %}
+    {% if dni|length > 0 %}
+     {% for consulta in dni  %}
 
     <section>
            
@@ -139,29 +139,39 @@
 
       <div class="row">
           <div class="col-sm-12 col-md-4 col-lg-4">
-            <div class="tarjeta" style="background: url({{consulta.empresa.logo.url}});background-repeat:no-repeat; width: 330px; max-width: 100%;">
-              <div class="civ-foto">
-              {% if consulta.foto %}
-                    <img src="{{consulta.foto.url}}" class="img-perfil">
-                           {% else %}no 
-              {% endif %}
-              <p class="texto-grueso "><strong class="text-danger">{{consulta.civ}}</strong></p>
-             </div>
-             <div class="vertical">
-                        <span><strong>{{consulta.nombre|upper}}</strong></span><br>
-                        <span><strong>{{consulta.apellido|upper}}</strong></span> 
-                        <p><strong>DNI: {{consulta.identificador}}</strong></p>
-            </div>
-             <div class="placa"><strong class="texto-grueso">{{consulta.placa|upper}}</strong></div>
-          </div>
-     
-         
-          {% if fecha_actual > consulta.fecha_caducidad_licencia %}
-                        <h2 class="text-danger text-center estado"> Vencido</h2>
-          {% else %}  
-                        <h2 class="text-success estado text-center"> Activo</h2>    
-                      
-          {% endif %}
+            {% if consulta.empresa.logo %}
+                  <div class="tarjeta" style="background: url({{consulta.empresa.logo.url}});background-repeat:no-repeat; width: 330px; max-width: 100%;">
+            {% else %}
+                  <div class="tarjeta">
+             {% endif %}
+                      <div class="civ-foto">
+                        {% if consulta.foto %}
+                              <img src="{{consulta.foto.url}}" class="img-perfil">
+                        {% else %}
+                              no 
+                        {% endif %}
+
+                        <p class="texto-grueso "><strong class="text-danger">{{consulta.civ}}</strong></p>
+                      </div>
+                      <div class="vertical">
+                                <span><strong>{{consulta.nombre|upper}}</strong></span><br>
+                                <span><strong>{{consulta.apellido|upper}}</strong></span> 
+                                <p><strong>DNI: {{consulta.dni}}</strong></p>
+                      </div>
+                     <div class="placa"><strong class="texto-grueso">{{consulta.placa|upper}}</strong></div>
+                  </div>
+            
+              
+           
+              
+       
+           
+            {% if fecha_actual > consulta.fecha_caducidad_licencia %}
+                          <h2 class="text-danger text-center estado"> Vencido</h2>
+            {% else %}  
+                          <h2 class="text-success estado text-center"> Activo</h2>    
+                        
+            {% endif %}
           </div><!--/fin col-md-5--> 
 
           <div class="col-md-8 col-sm-12 col-lg-8 col-12" >
@@ -177,7 +187,7 @@
                 <label for="exampleInputEmail1">Codigo Municipal:</label>
                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{consulta.civ}}" disabled> 
                 <label for="exampleInputEmail1">DNI:</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{consulta.identificador|upper}}" disabled> 
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{consulta.dni|upper}}" disabled> 
                 <label for="exampleInputEmail1">Vigencia :</label>
                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{consulta.fecha_inicio_licencia}}al{{consulta.fecha_caducidad_licencia}}" disabled> 
                
