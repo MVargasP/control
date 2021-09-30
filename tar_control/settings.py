@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'es0=6om7^tp7w=il7z%a+0ct#ivci&8()5pmfqi-(6i8@2l)f%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-ALLOWED_HOSTS = ['tarjetacontrol-losolivos.com','www.tarjetacontrol-losolivos.com']
-#ALLOWED_HOSTS = ['*']
+DEBUG = True
+#ALLOWED_HOSTS = ['tarjetacontrol-losolivos.com','www.tarjetacontrol-losolivos.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cliente',
     "bootstrap4",
-
+    'rest_framework',
     "import_export", #opcion de importar archivos
 ]
 
@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'tar_control.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-""" 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -91,10 +91,10 @@ DATABASES = {
         "USER": 'master',
         "PASSWORD": 'solucioneskalel',
         "PORT": '5432',
-        "HOST": 'localhost',
+        "HOST": '23.239.11.144',
     }
 }
-
+""" 
  
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -132,11 +132,20 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = "/static/"
  
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'staticfiles'),)
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, '/home/master/multimedia/media')
+#MEDIA_ROOT = os.path.join(BASE_DIR, '/home/h43779c/public_media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+
 #MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_COOKIE_AGE = 9000 # esto hara que la session expire despues de 10 minutos
+SESSION_SAVE_EVERY_REQUEST = True
+
